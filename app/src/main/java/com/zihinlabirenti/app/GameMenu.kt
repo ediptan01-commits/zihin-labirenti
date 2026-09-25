@@ -23,6 +23,15 @@ fun GameMenu() {
     var dikkatAcik by remember {
     mutableStateOf(false)
     }
+    if (matematikAcik) {
+
+    MathGame()
+
+    return
+    }
+    var matematikAcik by remember {
+    mutableStateOf(false)
+    }
     var mantikAcik by remember {
         mutableStateOf(false)
     }
@@ -142,9 +151,10 @@ fun GameMenu() {
                 emoji = "🔢",
                 title = "Matematik",
                 modifier = Modifier.weight(1f),
-                onClick = {}
-            )
-        }
+                onClick = {
+        matematikAcik = true
+    }
+)  
 
         Spacer(modifier = Modifier.height(10.dp))
 
