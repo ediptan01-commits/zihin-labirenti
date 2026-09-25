@@ -20,14 +20,21 @@ fun GameMenu() {
     var hafizaAcik by remember {
         mutableStateOf(false)
     }
-
+    var mantikAcik by remember {
+        mutableStateOf(false)
+    }
     if (hafizaAcik) {
 
         MemoryGame()
 
         return
     }
+    if (mantikAcik) {
 
+       LogicGame()
+
+       return
+    }
     val background = Color(0xFF080B16)
     val purple = Color(0xFF7C4DFF)
 
@@ -101,9 +108,10 @@ fun GameMenu() {
                 emoji = "💡",
                 title = "Mantık",
                 modifier = Modifier.weight(1f),
-                onClick = {}
-            )
-        }
+                onClick = {
+                 mantikAcik = true
+                 }
+             )
 
         Spacer(modifier = Modifier.height(10.dp))
 
