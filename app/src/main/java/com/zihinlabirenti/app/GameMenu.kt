@@ -17,42 +17,32 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun GameMenu() {
 
-    var hafizaAcik by remember {
-        mutableStateOf(false)
-    }
-    var dikkatAcik by remember {
-    mutableStateOf(false)
-    }
-    if (matematikAcik) {
+    var hafizaAcik by remember { mutableStateOf(false) }
+    var mantikAcik by remember { mutableStateOf(false) }
+    var dikkatAcik by remember { mutableStateOf(false) }
+    var matematikAcik by remember { mutableStateOf(false) }
 
-    MathGame()
-
-    return
-    }
-    var matematikAcik by remember {
-    mutableStateOf(false)
-    }
-    var mantikAcik by remember {
-        mutableStateOf(false)
-    }
+    // Oyun ekranları
     if (hafizaAcik) {
-
         MemoryGame()
-
         return
     }
+
     if (mantikAcik) {
-
-       LogicGame()
-
-       return
+        LogicGame()
+        return
     }
+
     if (dikkatAcik) {
-
-    AttentionGame()
-
-    return
+        AttentionGame()
+        return
     }
+
+    if (matematikAcik) {
+        MathGame()
+        return
+    }
+
     val background = Color(0xFF080B16)
     val purple = Color(0xFF7C4DFF)
 
@@ -80,6 +70,7 @@ fun GameMenu() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
+        // Günün Zihin Savaşı
         Button(
             onClick = {},
             modifier = Modifier
@@ -108,6 +99,7 @@ fun GameMenu() {
 
         Spacer(modifier = Modifier.height(12.dp))
 
+        // 1. satır
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -127,37 +119,41 @@ fun GameMenu() {
                 title = "Mantık",
                 modifier = Modifier.weight(1f),
                 onClick = {
-                 mantikAcik = true
-                 }
-             )
+                    mantikAcik = true
+                }
+            )
+        }
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        // 2. satır
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
 
-            GameButton(   
+            GameButton(
                 emoji = "🎯",
                 title = "Dikkat",
                 modifier = Modifier.weight(1f),
                 onClick = {
-        dikkatAcik = true
-    }
-)
+                    dikkatAcik = true
+                }
+            )
 
             GameButton(
                 emoji = "🔢",
                 title = "Matematik",
                 modifier = Modifier.weight(1f),
                 onClick = {
-        matematikAcik = true
-    }
-)  
+                    matematikAcik = true
+                }
+            )
+        }
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        // 3. satır
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(10.dp)
