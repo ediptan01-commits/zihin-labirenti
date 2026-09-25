@@ -20,6 +20,9 @@ fun GameMenu() {
     var hafizaAcik by remember {
         mutableStateOf(false)
     }
+    var dikkatAcik by remember {
+    mutableStateOf(false)
+    }
     var mantikAcik by remember {
         mutableStateOf(false)
     }
@@ -34,6 +37,12 @@ fun GameMenu() {
        LogicGame()
 
        return
+    }
+    if (dikkatAcik) {
+
+    AttentionGame()
+
+    return
     }
     val background = Color(0xFF080B16)
     val purple = Color(0xFF7C4DFF)
@@ -120,12 +129,14 @@ fun GameMenu() {
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
 
-            GameButton(
+            GameButton(   
                 emoji = "🎯",
                 title = "Dikkat",
                 modifier = Modifier.weight(1f),
-                onClick = {}
-            )
+                onClick = {
+        dikkatAcik = true
+    }
+)
 
             GameButton(
                 emoji = "🔢",
